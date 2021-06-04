@@ -1,0 +1,29 @@
+alt + Return
+  kitty
+
+alt + shift + {q,r}
+  bspc {quit,wm -r}
+
+alt + {1-5}
+  bspc desktop -f {I,II,III,IV,V}
+
+alt + shift + {1-5}
+  bspc node -d {I,II,III,IV,V}
+
+Print
+  flameshot full -c
+
+shift + Print
+  flameshot gui
+
+alt + space
+  rofi -show run
+
+XF86AudioMute
+  amixer sset Master toggle
+
+XF86AudioLowerVolume
+  amixer sset Master unmute 1%-
+
+XF86AudioRaiseVolume
+  amixer sset Master unmute 1%+

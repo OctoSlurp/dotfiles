@@ -1,0 +1,21 @@
+#!/usr/bin/env bash
+
+amixer sset PCM unmute 100%
+
+killall -q sxhkd
+sxhkd &
+
+killall -q flameshot
+flameshot &
+
+eww kill
+eww daemon
+sleep 1
+eww open bar
+
+bspc monitor -d I II III IV V
+
+bspc config top_padding 38
+bspc config window_gap 8
+
+feh --bg-scale ~/.config/bspwm/wallpaper.png

@@ -1,0 +1,32 @@
+#!/usr/bin/env bash
+[ ! -d ~/.config ] && mkdir ~/.config
+
+# WM
+echo Copying WM
+rm -rf ~/.config/bspwm ~/.config/sxhkd ~/.xinitrc
+mkdir ~/.config/bspwm ~/.config/sxhkd
+
+cp $(dirname $0)/wm/bspwmrc ~/.config/bspwm
+cp $(dirname $0)/wm/wallpaper.png ~/.config/bspwm
+cp $(dirname $0)/wm/sxhkdrc ~/.config/sxhkd
+cp $(dirname $0)/wm/.xinitrc ~/.xinitrc
+
+# EWW
+echo Copying Eww
+rm -rf ~/.config/eww
+
+cp -r $(dirname $0)/eww ~/.config
+
+# NEOVIM
+echo Copying Neovim
+rm -rf ~/.config/nvim
+
+cp -r $(dirname $0)/neovim ~/.config/nvim
+echo Installing Neovim Plugins
+nvim --headless +PlugInstall +qa 2> /dev/null
+
+# KITTY
+echo Copying Kitty
+rm -rf ~/.config/kitty
+
+cp -r $(dirname $0)/kitty ~/.config

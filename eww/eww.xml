@@ -1,0 +1,63 @@
+<eww>
+  <includes>
+  </includes>
+
+  <definitions>
+    <def name="time">
+      <label class="time" text="{{ time }}" />
+    </def>
+    <def name="date">
+      <label class="date" text="{{ date }}" />
+    </def>
+    <def name="alsa">
+      <box>
+        <label class="alsa" text="{{ sound }}" />
+      </box>
+    </def>
+    <def name="bspwm">
+      <literal content="{{ workspaces }}" />
+    </def>
+    <def name="bar">
+      <box hexpand="true">
+      	<box hexpand="true" halign="start"></box>
+	      <bspwm />
+	      <box halign="end" space-evenly="true">
+	        <alsa />
+          <time />
+          <date />
+      	</box>
+      </box>
+    </def>
+  </definitions>
+
+  <variables>
+    <script-var name="date">
+      date +"%d/%m/%Y"
+    </script-var>
+    <script-var name="time" interval="1m">
+      date +"%H:%M"
+    </script-var>
+    <script-var name="sound" interval="100ms">
+	    amixer sget Master | grep -oP -m 1 '\d+%'
+    </script-var>
+    <script-var name="workspaces" interval="100ms">
+      sh ~/.config/eww/scripts/get-workspaces.sh
+    </script-var>
+  </variables>
+
+  <windows>
+    <window name="bar" screen="0">
+      <geometry
+         anchor="top left"
+	       x="0"
+	       y="0"
+	       width="100%"
+	       height="30px"
+      />
+      <reserve side="top" distance="30px" layer="top" />
+      <widget>
+        <bar />
+      </widget>
+    </window>
+  </windows>
+</eww>

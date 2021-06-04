@@ -1,0 +1,31 @@
+$background: #222222;
+$foreground: #f1f1f1;
+$primary: #b6d6fd;
+
+* {
+  all: unset;
+}
+
+window {
+  background-color: $background;
+  color: $foreground;
+  font-family: Hack Nerd Font Mono;
+  font-size: 12px;
+}
+
+.workspace {
+  padding: 6px;
+
+  &.active {
+    border-bottom: solid 2px $primary;
+    font-weight: bold;
+  }
+}
+
+.alsa {
+  margin-right: -70px;
+}
+
+.date {
+  margin-right: 16px;
+}
