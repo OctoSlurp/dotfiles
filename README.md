@@ -1,6 +1,4 @@
-<center>
-  <h3>OctoSlurp Dotfiles</h3>
-</center>
+<h3 align="center">OctoSlurp Dotfiles</h3>
 
 #### Installation
 Run the install script.
