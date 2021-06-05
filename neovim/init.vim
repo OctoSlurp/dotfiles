@@ -4,6 +4,7 @@ call plug#begin()
   Plug 'justinmk/vim-sneak'
   Plug 'mg979/vim-visual-multi'
   Plug 'suan/vim-instant-markdown', { 'for': 'markdown' }
+  Plug 'neoclide/coc.nvim', { 'for': ['ruby', 'json'] }
 call plug#end()
 " }
 
@@ -35,4 +36,10 @@ noremap <Left> <Nop>
 noremap <Right> <Nop>
 noremap <Up> <Nop>
 noremap <Down> <Nop>
+" }
+
+" Coc {
+let g:coc_global_extensions = ['coc-json', 'coc-solargraph']
+
+inoremap <silent><expr> <c-space> coc#refresh()
 " }
